@@ -30,12 +30,9 @@ Atau dalam kata lain adalah sebuah perintah atau permintaan untuk menyuruh sebua
 `white suit`,
 `hair ribbon`,
 
-### **Jika prompt yang di atas dijadikan sebuah kalimat akan menjadi seperti ini**
+Jika prompt yang di atas dijadikan sebuah kalimat akan menjadi seperti ini `satu orang gadis` `berrambut panjang` yang `memakai pita rambut`, `sedang melihat kearahmu`,` dengan senyuman.`
 
-
-artinya kamu menginginkan gambar dengan `satu orang gadis` `berrambut panjang` yang `memakai pita rambut`, `sedang melihat kearahmu`,` dengan senyuman.`
-
-### Prompt hanyalah sebuah detail kecil untuk menggambarkan sesuatu pada gambarmu
+Prompt hanyalah sebuah detail kecil untuk menggambarkan sesuatu pada gambarmu
 - Negative Prompt (hal2 yang tidak diinginkan pada gambar)
   
 Atau dalam kata lain adalah sebuah perintah atau larangan untuk menyuruh sebuah AI di Stable Diffusion tidak menggambarkan gambar sesuaitu atau melakukan seuatu di stable diffuion yang tidak kalian inginkan dan sehingga menghasilkan karya seni yang sesuai atau hampir mendekati dengan perintah atau larangan yang kamu berikan atau yang kamu inginkan.
@@ -68,12 +65,21 @@ seperti contoh :
 `watermark`,
 `worst quality`,
 
-### **Jika prompt Negatif di atas di artikan dalam bahasa kita**
-
-
-artinya kamu tidak menginginkan gambar yang memiliki `anatomi yang buruk`, `tangan yang buruk`, `sensor bar`, `disensor`, `anggota badan yang terputus`, `angka tambahan`, `lebih sedikit angka`, `anggota badan mengambang`, `kualitas rendah`, `resolusi rendah`, `jari-jari yang hilang`, `anggota badan yang hilang`, `jari yang bermutasi`, `tangan yang bermutasi`, `kualitas normal`, `keluar dari frame`, `digambar dengan buruk`, `pornografi`, `tanda air`, `kualitas buruk`,
+Jika prompt Negatif di atas artinya kamu tidak menginginkan gambar yang memiliki `anatomi yang buruk`, `tangan yang buruk`, `sensor bar`, `disensor`, `anggota badan yang terputus`, `angka tambahan`, `lebih sedikit angka`, `anggota badan mengambang`, `kualitas rendah`, `resolusi rendah`, `jari-jari yang hilang`, `anggota badan yang hilang`, `jari yang bermutasi`, `tangan yang bermutasi`, `kualitas normal`, `keluar dari frame`, `digambar dengan buruk`, `pornografi`, `tanda air`, `kualitas buruk`,
 
 ### Negatif Prompt hanyalah sebuah larangan yang diberikan oleh dirimu untuk AI agar AI tidak menggambarkan sesuatu yang tidak di inginkan pada yang akan di buat
+
+- Cara Mengganti Checkpoint yang dimiliki***
+
+tekan Model Checkpoint untuk melihat model apa saja yang dimiliki :
+
+![download (1)](https://github.com/user-attachments/assets/0848bee8-d803-425c-ba5e-c49dbc625dae)
+
+Setelah itu kalian bisa memilih Model Checkpoint yang akan digunakan :
+
+![download (2)](https://github.com/user-attachments/assets/2c4ba3e5-b0f8-4b64-aa8e-8193d70d3624)
+
+
 
 
 
