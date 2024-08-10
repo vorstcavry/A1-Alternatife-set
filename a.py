@@ -91,6 +91,15 @@ if not os.path.exists(flag_file):
     with open(flag_file, "w") as f:
         f.write(">W<'")
 
+import os
+from tqdm import tqdm
+packages = [
+            "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui /root/vorst-cavry",
+]
+for install in tqdm(packages, desc=print("Mempersiapkan Penyimpanan...")):
+    os.system(install)
+    
+    
     print("🍪 Libraries are installed!" + " "*35)
     time.sleep(2)
     clear_output()
