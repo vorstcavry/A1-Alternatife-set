@@ -93,13 +93,18 @@ if not os.path.exists(flag_file):
 
 import os
 from tqdm import tqdm
+from IPython.utils import capture
+from IPython.display import clear_output
 packages = [
             "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui /root/vorst-cavry",
+            "aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/vorstcavry/vorstcavry/resolve/main/config.json -d /root/vorst-cavry -o config.json",
+            "aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/vorstcavry/vorstcavry/resolve/main/ui-config.json -d /root/vorst-cavry -o ui-config.json",
 ]
-for install in tqdm(packages, desc=print("Mempersiapkan Penyimpanan...")):
+for install in tqdm(packages, desc=print("Prepare Repo...")):
     os.system(install)
     
     
     print("🍪 Libraries are installed!" + " "*35)
     time.sleep(2)
     clear_output()
+
