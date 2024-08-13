@@ -10,23 +10,24 @@ Original file is located at
 import os
 from tqdm import tqdm
 packages = [
-            "git clone https://tinyurl.com/controlnet-s",
+            "git clone https://github.com/Mikubill/sd-webui-controlnet#Multi-ControlNet",
             #"git clone https://tinyurl.com/depth-lib-hand",
             #"git clone https://github.com/hnmr293/posex",
             "git clone https://github.com/BlafKing/sd-civitai-browser-plus",
             "git clone https://github.com/vorstcavry/images-browser",
             "git clone https://github.com/Iyashinouta/sd-model-downloader",
             "git clone https://github.com/IDEA-Research/DWPose",
-            "git clone https://tinyurl.com/additional-networks-s",
+            "git clone https://github.com/kohya-ss/sd-webui-additional-networks",
             #"git clone https://github.com/fkunn1326/openpose-editor",
-            "git clone https://tinyurl.com/openpose-edit",
+            "git clone https://github.com/huchenlei/sd-webui-openpose-editor",
             "git clone https://github.com/NoCrypt/inpaint-nav",
-            "git clone https://github.com/vorstcavry/tagcomplete",
-            "git clone https://tinyurl.com/batchlink-download",
-            "git clone https://tinyurl.com/aspect-ratio-v",
+            "git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete",
+            "git clone https://github.com/etherealxx/batchlinks-webui",
+            "git clone https://github.com/thomasasfk/sd-webui-aspect-ratio-helper",
             "git clone https://github.com/pantat88/sd-fast-pnginfo",
             "git clone https://github.com/ahgsql/StyleSelectorXL",
             "git clone https://github.com/vorstcavry/static",
+            "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards"
 
 
 ]
