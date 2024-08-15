@@ -10,7 +10,7 @@ Original file is located at
 import os
 from tqdm import tqdm
 packages = [
-            "git clone https://github.com/Mikubill/sd-webui-controlnet#Multi-ControlNet",
+            "git clone https://github.com/Mikubill/sd-webui-controlnet",
             #"git clone https://tinyurl.com/depth-lib-hand",
             #"git clone https://github.com/hnmr293/posex",
             "git clone https://github.com/BlafKing/sd-civitai-browser-plus",
