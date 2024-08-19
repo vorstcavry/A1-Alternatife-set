@@ -31,7 +31,7 @@ packages = [
             "git clone https://github.com/ahgsql/StyleSelectorXL",
             "git clone https://github.com/vorstcavry/static",
             "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards",
-            "git clone https://github.com/space-nuko/a1111-stable-diffusion-webui-vram-estimator",
+            #"git clone https://github.com/space-nuko/a1111-stable-diffusion-webui-vram-estimator",
             "git clone https://github.com/hnmr293/sd-webui-llul",
 
 ]
