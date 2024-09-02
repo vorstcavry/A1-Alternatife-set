@@ -25,13 +25,13 @@ packages = [
             "git clone https://github.com/huchenlei/sd-webui-openpose-editor",
             "git clone https://github.com/NoCrypt/inpaint-nav",
             "git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete",
-            "git clone https://github.com/etherealxx/batchlinks-webui",
+            "git clone https://github.com/gutris1/sd-hub",
             "git clone https://github.com/thomasasfk/sd-webui-aspect-ratio-helper",
             "git clone https://github.com/pantat88/sd-fast-pnginfo",
             "git clone https://github.com/ahgsql/StyleSelectorXL",
             "git clone https://github.com/vorstcavry/static",
             "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards",
-            #"git clone https://github.com/space-nuko/a1111-stable-diffusion-webui-vram-estimator",
+            "git clone https://github.com/new-sankaku/stable-diffusion-webui-simple-manga-maker",
             "git clone https://github.com/hnmr293/sd-webui-llul",
 
 ]
