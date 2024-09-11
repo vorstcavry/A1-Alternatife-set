@@ -13,10 +13,10 @@ packages = [
             "git clone https://github.com/Mikubill/sd-webui-controlnet",
             #"git clone https://tinyurl.com/depth-lib-hand",
             #"git clone https://github.com/hnmr293/posex",
-            "git clone https://github.com/Klokinator/Umi-AI-Wildcards",
+            #"git clone https://github.com/Klokinator/Umi-AI-Wildcards",
             "git clone https://github.com/BlafKing/sd-civitai-browser-plus",
-            "git clone https://github.com/viyiviyi/sd-encrypt-image /root/vorst-cavry/extensions/Encrypt-Image", 
-            "git clone https://github.com/animerl/novelai-2-local-prompt",
+            #"git clone https://github.com/viyiviyi/sd-encrypt-image /root/vorst-cavry/extensions/Encrypt-Image", 
+            #"git clone https://github.com/animerl/novelai-2-local-prompt",
             "git clone https://github.com/vorstcavry/images-browser",
             "git clone https://github.com/Iyashinouta/sd-model-downloader",
             "git clone https://github.com/IDEA-Research/DWPose",
@@ -31,7 +31,7 @@ packages = [
             "git clone https://github.com/ahgsql/StyleSelectorXL",
             "git clone https://github.com/vorstcavry/static",
             "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards",
-            "git clone https://github.com/new-sankaku/stable-diffusion-webui-simple-manga-maker",
+            #"git clone https://github.com/new-sankaku/stable-diffusion-webui-simple-manga-maker",
             "git clone https://github.com/hnmr293/sd-webui-llul",
 
 ]
