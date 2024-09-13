@@ -20,7 +20,7 @@ packages = [
             "git clone https://github.com/vorstcavry/images-browser",
             "git clone https://github.com/Iyashinouta/sd-model-downloader",
             "git clone https://github.com/IDEA-Research/DWPose",
-            "git clone https://github.com/kohya-ss/sd-webui-additional-networks /root/vorst-cavry/extensions/Additional-Networks",
+            "git clone https://github.com/kohya-ss/sd-webui-additional-networks /root/vorst-cavry/extensions/additional-networks",
             #"git clone https://github.com/fkunn1326/openpose-editor",
             "git clone https://github.com/huchenlei/sd-webui-openpose-editor",
             "git clone https://github.com/NoCrypt/inpaint-nav",
