@@ -37,13 +37,13 @@ def run_subprocesses_f():
     
 def run_subprocesses_x():
     global progress_done2
-    if 'content' in os.listdir('/') and not os.path.exists("x1101"):
+    if 'content' in os.listdir('/') and not os.path.exists("vorstcavry"):
         x_ver = "0.0.27.post2"
         if args.debug:
             subprocess.run(f"pip install xformers=={x_ver} --no-deps", shell=True)
         else:
             subprocess.run(f"pip install xformers=={x_ver}", shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    elif 'kaggle' in os.listdir('/') and not os.path.exists("x1101"):
+    elif 'kaggle' in os.listdir('/') and not os.path.exists("vorstcavry"):
         x_ver = "0.0.27"
         if args.debug:
             subprocess.run(f"pip install xformers=={x_ver} torchvision==0.18.1 torchaudio==2.3.1 open-clip-torch==2.26.1", shell=True)
@@ -91,7 +91,7 @@ else:
 
 
 ################# UI #################
-ui_path = os.path.join(ui, "x1101")
+ui_path = os.path.join(ui, "vorstcavry")
 git_path = os.path.join(ui_path, "extensions")
 
 def run_subprocesses(commands, show_output=False):
@@ -115,7 +115,7 @@ commands = [
     ("apt-get install lz4", "lz4"),
     ("curl -s -Lo /usr/bin/cl https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 && chmod +x /usr/bin/cl", "cloudflared"),
     (f"curl -sLO https://github.com/openziti/zrok/releases/download/v0.4.23/zrok_0.4.23_linux_amd64.tar.gz && tar -xzf zrok_0.4.23_linux_amd64.tar.gz && rm -rf zrok_0.4.23_linux_amd64.tar.gz && mv {ui}/zrok /usr/bin", "zrok"),
-    (f"aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/vorstcavry/ga-tau-ini-apaan/resolve/main/ui.tar.lz4 -o ui.tar.lz4 && tar -xI lz4 -f ui.tar.lz4 && mv -f {ui}/kaggle/working/x1101 {ui} && rm {ui}/ui.tar.lz4 && rm -rf {ui}/kaggle", "Installing UI..."),
+    (f"aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/vorstcavry/ga-tau-ini-apaan/resolve/main/ui.tar.lz4 -o ui.tar.lz4 && tar -xI lz4 -f ui.tar.lz4 && mv -f {ui}/kaggle/working/vorstcavry {ui} && rm {ui}/ui.tar.lz4 && rm -rf {ui}/kaggle", "Installing UI..."),
     (f"cd {ui_path} && git reset --hard && git pull", "Updating UI..."),
     (f"rm -rf {git_path}/* && cd {git_path} && git clone https://github.com/BlafKing/sd-civitai-browser-plus && git clone https://github.com/Mikubill/sd-webui-controlnet && git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete && git clone https://github.com/DEX-1101/sd-encrypt-image && git clone https://github.com/vorstcavry/ncpt_colab_timer && git clone https://github.com/gutris1/sd-hub && git clone https://github.com/Bing-su/adetailer.git && git clone https://github.com/zanllp/sd-webui-infinite-image-browsing && git clone https://github.com/thomasasfk/sd-webui-aspect-ratio-helper && git clone https://github.com/hako-mikan/sd-webui-regional-prompter && git clone https://github.com/picobyte/stable-diffusion-webui-wd14-tagger && git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111 && git clone https://github.com/Haoming02/sd-webui-tabs-extension", "Cloning Extensions..."),
     ("", "Done")
@@ -124,7 +124,7 @@ commands = [
 ################# UI ##################
 
 ################# PASTEBIN DL #################
-webui_path = os.path.join(root_path, "x1101")
+webui_path = os.path.join(root_path, "vorstcavry")
 
 custom_model_url        = ""
 custom_vae_url          = ""
@@ -335,14 +335,14 @@ if __name__ == "__main__":
 
     print_line(0)
     cprint(f"[+] Installing Requirements", color="flat_blue")
-    if not os.path.exists("x1101"):
+    if not os.path.exists("vorstcavry"):
         run_subprocesses(commands)
     
     if args.config:
         subprocess.run(f"wget -q {import_config} -O {ui}/config.json", shell=True)
     
     if args.hub_token:
-        subprocess.run(f"mkdir -p {ui}/x1101 && wget -q {secret} -O {ui}/x1101/sd-hub-token.json", shell=True)
+        subprocess.run(f"mkdir -p {ui}/vorstcavry && wget -q {secret} -O {ui}/vorstcavry/sd-hub-token.json", shell=True)
 
     if args.ngrok_token:
         ngrok = f"--ngrok {ngrok_token}"
@@ -380,10 +380,10 @@ if __name__ == "__main__":
     
     with tunnel:
         #subprocess.run("python -m http.server 1101", shell=True)
-        subprocess.run(f"echo -n {start_colab} >{ui}/x1101/static/colabTimer.txt", shell=True)
-        lol = f"sed -i -e \"s/\\[\\\"sd_model_checkpoint\\\"\\]/\\[\\\"sd_model_checkpoint\\\",\\\"sd_vae\\\",\\\"CLIP_stop_at_last_layers\\\"\\]/g\" {ui}/x1101/modules/shared_options.py"
+        subprocess.run(f"echo -n {start_colab} >{ui}/vorstcavry/static/colabTimer.txt", shell=True)
+        lol = f"sed -i -e \"s/\\[\\\"sd_model_checkpoint\\\"\\]/\\[\\\"sd_model_checkpoint\\\",\\\"sd_vae\\\",\\\"CLIP_stop_at_last_layers\\\"\\]/g\" {ui}/vorstcavry/modules/shared_options.py"
         subprocess.run(lol, shell=True)
         if args.debug:
-            subprocess.run(f"cd {ui}/x1101 && python launch.py --port=1101 {ngrok} --api --encrypt-pass=x1101 --precision full --no-half --use-cpu SD GFPGAN BSRGAN ESRGAN SCUNet CodeFormer --all --skip-torch-cuda-test --theme dark --enable-insecure-extension-access --disable-console-progressbars --disable-safe-unpickle --no-download-sd-model", shell=True)
+            subprocess.run(f"cd {ui}/vorstcavry && python launch.py --port=1101 {ngrok} --api --encrypt-pass=vorstcavry --precision full --no-half --use-cpu SD GFPGAN BSRGAN ESRGAN SCUNet CodeFormer --all --skip-torch-cuda-test --theme dark --enable-insecure-extension-access --disable-console-progressbars --disable-safe-unpickle --no-download-sd-model", shell=True)
         else:
-            subprocess.run(f"cd {ui}/x1101 && python launch.py --port=1101 {ngrok} --api --encrypt-pass=x1101 --xformers --theme dark --enable-insecure-extension-access --disable-console-progressbars --disable-safe-unpickle --no-half-vae --no-download-sd-model", shell=True)
+            subprocess.run(f"cd {ui}/vorstcavry && python launch.py --port=1101 {ngrok} --api --encrypt-pass=vorstcavry --xformers --theme dark --enable-insecure-extension-access --disable-console-progressbars --disable-safe-unpickle --no-half-vae --no-download-sd-model", shell=True)
