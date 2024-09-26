@@ -1,2 +1,3 @@
 https://raw.githubusercontent.com/vorstcavry/A1-Alternatife-set/refs/heads/main/set/new_tunnel
 https://raw.githubusercontent.com/vorstcavry/A1-Alternatife-set/refs/heads/main/set/download_list.txt
+https://raw.githubusercontent.com/vorstcavry/A1-Alternatife-set/refs/heads/main/set/config.json
