@@ -118,7 +118,7 @@ commands = [
     (f"aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/vorstcavry/ga-tau-ini-apaan/resolve/main/ui.tar.lz4 -o ui.tar.lz4 && tar -xI lz4 -f ui.tar.lz4 && mv -f {ui}/kaggle/working/vorstcavry {ui} && rm {ui}/ui.tar.lz4 && rm -rf {ui}/kaggle", "Installing UI..."),
     (f"cd {ui_path} && git reset --hard && git pull", "Updating UI..."),
     (f"rm /content/vorstcavry/config.json", "Prepare Config..."),
-    (f"curl -o {ui_path}/config.json https://raw.githubusercontent.com/vorstcavry/A1-Alternatife-set/refs/heads/main/set/config.json", "Set Config...")
+    (f"curl -o {ui_path}/config.json https://raw.githubusercontent.com/vorstcavry/A1-Alternatife-set/refs/heads/main/set/config.json", "Set Config..."),
     (f"rm -rf {git_path}/* && cd {git_path} && git clone https://github.com/BlafKing/sd-civitai-browser-plus && git clone https://github.com/Mikubill/sd-webui-controlnet && git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete && git clone https://github.com/DEX-1101/sd-encrypt-image && git clone https://github.com/vorstcavry/ncpt_colab_timer && git clone https://github.com/gutris1/sd-hub && git clone https://github.com/Bing-su/adetailer.git && git clone https://github.com/zanllp/sd-webui-infinite-image-browsing && git clone https://github.com/thomasasfk/sd-webui-aspect-ratio-helper && git clone https://github.com/hako-mikan/sd-webui-regional-prompter && git clone https://github.com/picobyte/stable-diffusion-webui-wd14-tagger && git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111 && git clone https://github.com/Haoming02/sd-webui-tabs-extension", "Cloning Extensions..."),
     ("", "Done")
 ]
