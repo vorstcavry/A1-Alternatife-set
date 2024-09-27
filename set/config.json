@@ -390,7 +390,7 @@
     "tagger_repl_us_excl": "0_0, (o)_(o), +_+, +_-, ._., <o>_<o>, <|>_<|>, =_=, >_<, 3_3, 6_9, >_o, @_@, ^_^, o_o, u_u, x_x, |_|, ||_||",
     "tagger_escape": false,
     "tagger_batch_size": 1024.0,
-    "tagger_hf_cache_dir": "/kaggle/working/x1101/models/interrogators",
+    "tagger_hf_cache_dir": "/content/vorstcavry/models/interrogators",
     "hypertile_enable_unet": false,
     "hypertile_enable_unet_secondpass": false,
     "hypertile_max_depth_unet": 3,
