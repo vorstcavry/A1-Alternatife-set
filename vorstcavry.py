@@ -117,6 +117,8 @@ commands = [
     (f"curl -sLO https://github.com/openziti/zrok/releases/download/v0.4.23/zrok_0.4.23_linux_amd64.tar.gz && tar -xzf zrok_0.4.23_linux_amd64.tar.gz && rm -rf zrok_0.4.23_linux_amd64.tar.gz && mv {ui}/zrok /usr/bin", "zrok"),
     (f"aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/vorstcavry/ga-tau-ini-apaan/resolve/main/ui.tar.lz4 -o ui.tar.lz4 && tar -xI lz4 -f ui.tar.lz4 && mv -f {ui}/kaggle/working/vorstcavry {ui} && rm {ui}/ui.tar.lz4 && rm -rf {ui}/kaggle", "Installing UI..."),
     (f"cd {ui_path} && git reset --hard && git pull", "Updating UI..."),
+    (f"rm /content/vorstcavry/config.json", "Prepare Config..."),
+    (f"curl -o {ui_path}/config.json https://raw.githubusercontent.com/vorstcavry/A1-Alternatife-set/refs/heads/main/set/config.json", "Set Config...")
     (f"rm -rf {git_path}/* && cd {git_path} && git clone https://github.com/BlafKing/sd-civitai-browser-plus && git clone https://github.com/Mikubill/sd-webui-controlnet && git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete && git clone https://github.com/DEX-1101/sd-encrypt-image && git clone https://github.com/vorstcavry/ncpt_colab_timer && git clone https://github.com/gutris1/sd-hub && git clone https://github.com/Bing-su/adetailer.git && git clone https://github.com/zanllp/sd-webui-infinite-image-browsing && git clone https://github.com/thomasasfk/sd-webui-aspect-ratio-helper && git clone https://github.com/hako-mikan/sd-webui-regional-prompter && git clone https://github.com/picobyte/stable-diffusion-webui-wd14-tagger && git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111 && git clone https://github.com/Haoming02/sd-webui-tabs-extension", "Cloning Extensions..."),
     ("", "Done")
 ]
@@ -368,22 +370,22 @@ if __name__ == "__main__":
         
         
     print_line(0)
-    cprint(f"[+] Starting WebUI...", color="flat_blue")
-    tunnel_class = pickle.load(open("new_tunnel", "rb"), encoding="utf-8")
-    tunnel_port= 1101
-    tunnel = tunnel_class(tunnel_port)
-    tunnel.add_tunnel(command="cl tunnel --url localhost:{port}", name="cl", pattern=re.compile(r"[\w-]+\.trycloudflare\.com"))
-    tunnel.add_tunnel(command="lt --port {port}", name="lt", pattern=re.compile(r"[\w-]+\.loca\.lt"), note="Password : " + Fore.GREEN + public_ipv4 + Style.RESET_ALL + " rerun cell if 404 error.")
-    if args.zrok_token:
-        subprocess.run(f"zrok enable {zrok_token}", shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        tunnel.add_tunnel(command="zrok share public http://localhost:{port}/ --headless", name="zrok", pattern=re.compile(r"[\w-]+\.share\.zrok\.io"))
+    #cprint(f"[+] Starting WebUI...", color="flat_blue")
+    #tunnel_class = pickle.load(open("new_tunnel", "rb"), encoding="utf-8")
+    #tunnel_port= 1101
+    #tunnel = tunnel_class(tunnel_port)
+    #tunnel.add_tunnel(command="cl tunnel --url localhost:{port}", name="cl", pattern=re.compile(r"[\w-]+\.trycloudflare\.com"))
+    #tunnel.add_tunnel(command="lt --port {port}", name="lt", pattern=re.compile(r"[\w-]+\.loca\.lt"), note="Password : " + Fore.GREEN + public_ipv4 + Style.RESET_ALL + " rerun cell if 404 error.")
+    #if args.zrok_token:
+    #    subprocess.run(f"zrok enable {zrok_token}", shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    #    tunnel.add_tunnel(command="zrok share public http://localhost:{port}/ --headless", name="zrok", pattern=re.compile(r"[\w-]+\.share\.zrok\.io"))
     
-    with tunnel:
-        #subprocess.run("python -m http.server 1101", shell=True)
-        subprocess.run(f"echo -n {start_colab} >{ui}/vorstcavry/static/colabTimer.txt", shell=True)
-        lol = f"sed -i -e \"s/\\[\\\"sd_model_checkpoint\\\"\\]/\\[\\\"sd_model_checkpoint\\\",\\\"sd_vae\\\",\\\"CLIP_stop_at_last_layers\\\"\\]/g\" {ui}/vorstcavry/modules/shared_options.py"
-        subprocess.run(lol, shell=True)
-        if args.debug:
-            subprocess.run(f"cd {ui}/vorstcavry && python launch.py --port=1101 {ngrok} --api --encrypt-pass=vorstcavry --precision full --no-half --use-cpu SD GFPGAN BSRGAN ESRGAN SCUNet CodeFormer --all --skip-torch-cuda-test --theme dark --enable-insecure-extension-access --disable-console-progressbars --disable-safe-unpickle --no-download-sd-model", shell=True)
-        else:
-            subprocess.run(f"cd {ui}/vorstcavry && python launch.py --port=1101 {ngrok} --api --encrypt-pass=vorstcavry --xformers --theme dark --enable-insecure-extension-access --disable-console-progressbars --disable-safe-unpickle --no-half-vae --no-download-sd-model", shell=True)
+    #with tunnel:
+        #######subprocess.run("python -m http.server 1101", shell=True)
+    #   subprocess.run(f"echo -n {start_colab} >{ui}/vorstcavry/static/colabTimer.txt", shell=True)
+    #    lol = f"sed -i -e \"s/\\[\\\"sd_model_checkpoint\\\"\\]/\\[\\\"sd_model_checkpoint\\\",\\\"sd_vae\\\",\\\"CLIP_stop_at_last_layers\\\"\\]/g\" {ui}/vorstcavry/modules/shared_options.py"
+    #    subprocess.run(lol, shell=True)
+    #    if args.debug:
+    #        subprocess.run(f"cd {ui}/vorstcavry && python launch.py --port=1101 {ngrok} --api --encrypt-pass=vorstcavry --precision full --no-half --use-cpu SD GFPGAN BSRGAN ESRGAN SCUNet CodeFormer --all --skip-torch-cuda-test --theme dark --enable-insecure-extension-access --disable-console-progressbars --disable-safe-unpickle --no-download-sd-model", shell=True)
+    #    else:
+    #        subprocess.run(f"cd {ui}/vorstcavry && python launch.py --port=1101 {ngrok} --api --encrypt-pass=vorstcavry --xformers --theme dark --enable-insecure-extension-access --disable-console-progressbars --disable-safe-unpickle --no-half-vae --no-download-sd-model", shell=True)
