@@ -5,7 +5,7 @@ import subprocess
 from threading import Thread
 
 def progress_bar():
-    sys.stdout.write('Loading \033[31mxvorstcavry.py\033[0m [')
+    sys.stdout.write('Loading \033[31mvorstcavry.py\033[0m [')
     sys.stdout.flush()
     while not progress_done:
         sys.stdout.write('\033[92m' + '■' + '\033[0m')
@@ -89,11 +89,14 @@ elif 'kaggle' in os.listdir('/'):
 else:
      cprint('Error. Enviroment not detected', color="flat_red")
 
+import os
+folder_name = 'tunnel'
+os.makedirs(folder_name, exist_ok=True)
 
 ################# UI #################
 ui_path = os.path.join(ui, "vorstcavry")
 git_path = os.path.join(ui_path, "extensions")
-
+tunnel_path = os.path.join(ui, "tunnel")
 def run_subprocesses(commands, show_output=False):
     processes = []
     for i, (command, message) in enumerate(commands):
@@ -110,7 +113,7 @@ def run_subprocesses(commands, show_output=False):
             print(f"Subprocess {i+1} failed with error: {stderr.decode().strip()}")
 
 commands = [
-    ("apt-get install -y aria2", "aria2"),
+    ("apt-get install && apt-get update && -y aria2", "aria2"),
     ("npm install -g localtunnel", "localtunnel"),
     ("apt-get install lz4", "lz4"),
     ("curl -s -Lo /usr/bin/cl https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 && chmod +x /usr/bin/cl", "cloudflared"),
@@ -119,6 +122,7 @@ commands = [
     (f"cd {ui_path} && git reset --hard && git pull", "Updating UI..."),
     (f"rm /content/vorstcavry/config.json", "Prepare Config..."),
     (f"curl -o {ui_path}/config.json https://raw.githubusercontent.com/vorstcavry/A1-Alternatife-set/refs/heads/main/set/config.json", "Set Config..."),
+    (f"cd {tunnel_path} && git clone https://github.com/vorstcavry/A1-Alternatife-set", "Setup Tunnel..."),
     (f"rm -rf {git_path}/* && cd {git_path} && git clone https://github.com/BlafKing/sd-civitai-browser-plus && git clone https://github.com/Mikubill/sd-webui-controlnet && git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete && git clone https://github.com/DEX-1101/sd-encrypt-image && git clone https://github.com/vorstcavry/ncpt_colab_timer && git clone https://github.com/gutris1/sd-hub && git clone https://github.com/Bing-su/adetailer.git && git clone https://github.com/zanllp/sd-webui-infinite-image-browsing && git clone https://github.com/thomasasfk/sd-webui-aspect-ratio-helper && git clone https://github.com/hako-mikan/sd-webui-regional-prompter && git clone https://github.com/picobyte/stable-diffusion-webui-wd14-tagger && git clone https://github.com/Coyote-A/ultimate-upscale-for-automatic1111 && git clone https://github.com/Haoming02/sd-webui-tabs-extension", "Cloning Extensions..."),
     ("", "Done")
 ]
@@ -243,13 +247,13 @@ def download_file_with_aria2(url, save_dir='.'):
     ]
     
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    cprint(f"Downloading {url}", color="default")
+    #cprint(f"Downloading {url}", color="default")
     process.wait() 
     
-    if process.returncode == 0:
-        cprint(f"File saved as {local_filename}", color="red")
-    else:
-        cprint(f"    Download failed for: {url}", color="flat_red")
+    #if process.returncode == 0:
+    #    cprint(f"File saved as {local_filename}", color="red")
+    #else:
+    #    cprint(f"    Download failed for: {url}", color="flat_red")
 
 def download_from_link_file(link_file_path):
     with open(link_file_path, 'r') as file:
@@ -370,6 +374,8 @@ if __name__ == "__main__":
         
         
     print_line(0)
+
+
     #cprint(f"[+] Starting WebUI...", color="flat_blue")
     #tunnel_class = pickle.load(open("new_tunnel", "rb"), encoding="utf-8")
     #tunnel_port= 1101
