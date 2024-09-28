@@ -113,7 +113,8 @@ def run_subprocesses(commands, show_output=False):
             print(f"Subprocess {i+1} failed with error: {stderr.decode().strip()}")
 
 commands = [
-    ("apt-get install && apt-get update && -y aria2", "aria2"),
+    #("apt-get install -y aria2", "aria2"),
+    ("apt-get update && apt -y install aria2", "aria2"),
     ("npm install -g localtunnel", "localtunnel"),
     ("apt-get install lz4", "lz4"),
     ("curl -s -Lo /usr/bin/cl https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 && chmod +x /usr/bin/cl", "cloudflared"),
