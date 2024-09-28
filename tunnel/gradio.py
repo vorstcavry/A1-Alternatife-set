@@ -21,7 +21,7 @@ commandline_arguments = "--listen --enable-insecure-extension-access --theme dar
 def detect_environment():
     free_plan = (os.sysconf('SC_PAGE_SIZE') * os.sysconf('SC_PHYS_PAGES') / (1024. ** 3) <= 20)
     environments = {
-        'COLAB_GPU': ('Google Colab', "/root" if free_plan else "/content"),
+        'COLAB_GPU': ('Google Colab', "/content" if free_plan else "/content"),
         'KAGGLE_URL_BASE': ('Kaggle', "/kaggle/working/content")
     }
 
