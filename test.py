@@ -41,10 +41,21 @@ class CustomDirs(BaseModel):
     url: str
     dst: str
 
+# @markdown ### **Drive Config**
+mount_drive          = False  # @param {type: 'boolean'}
+output_drive_folder  = "cagliostro-colab-forge"  # @param {type: 'string'}
+
 # @markdown ### **Repo Config**
 update_webui         = True  # @param {type: 'boolean'}
 update_extensions    = True  # @param {type: 'boolean'}
 commit_hash          = ""  # @param {type: 'string'}
+
+# @markdown ### **Download Config**
+# @markdown > Check only the options you need
+animagine_xl_3_1     = False  # @param {type: 'boolean'}
+rae_diffusion_xl_v2  = False  # @param {type: 'boolean'}
+kivotos_xl_v2_0      = False  # @param {type: 'boolean'}
+urangdiffusion_1_4   = False  # @param {type: 'boolean'}
 
 # @markdown > **Note:**
 # @markdown - For multiple URLs, use comma separation (e.g. `url1, url2, url3`)
@@ -54,9 +65,12 @@ custom_model_url     = ""  # @param {'type': 'string'}
 custom_vae_url       = "https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl.vae.safetensors"  # @param {'type': 'string'}
 custom_lora_url      = ""  # @param {'type': 'string'}
 
+# @markdown Set `use_preset` for using default prompt, resolution, sampler, and other settings
+use_presets          = True  # @param {type: 'boolean'}
+
 # @markdown ### **Launch Arguments**
 
-auto_select_model    = True  # @param {type: 'boolean'}
+auto_select_model    = False  # @param {type: 'boolean'}
 auto_select_vae      = True  # @param {type: 'boolean'}
 additional_arguments = "--lowram --theme dark --no-half-vae --opt-sdp-attention"  # @param {type: 'string'}
 
@@ -102,7 +116,19 @@ default_model_urls = {
 # HELPER FUNCTIONS STARTS HERE
 ################################
 
+def mount_drive_function(directory):
+    output_dir = repo_dir / "outputs"
 
+    if mount_drive:
+        print_line(80, color="green")
+        if not directory.exists():
+            from google.colab import drive
+            cprint("Mounting google drive...", color="green", reset=False)
+            drive.mount(str(directory.parent))
+        output_dir = directory / output_drive_folder
+        cprint("Set default output path to:", output_dir, color="green")
+
+    return output_dir
 
 def setup_directories():
     for dir in [ckpt_dir, vae_dir, lora_dir]:
@@ -279,6 +305,7 @@ def main():
 
     os.chdir(root_dir)
     start_time = time.time()
+    output_dir = mount_drive_function(drive_dir)
 
     gpu_info    = py_utils.get_gpu_info(get_gpu_name=True)
     python_info = py_utils.get_python_version()
