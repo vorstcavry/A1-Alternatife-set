@@ -96,7 +96,7 @@ from tqdm import tqdm
 from IPython.utils import capture
 from IPython.display import clear_output
 packages = [
-            "git clone https://github.com/lllyasviel/stable-diffusion-webui-forge /root/vorst-cavry",
+            "git clone https://github.com/Panchovix/stable-diffusion-webui-reForge /root/vorst-cavry",
 ]
 for install in tqdm(packages, desc=print("Prepare Repo...")):
     os.system(install)
